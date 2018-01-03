@@ -4,3 +4,4 @@ target/
 journal/
 snapshots/
 node_modules/
+bin
