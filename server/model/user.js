@@ -11,6 +11,7 @@ const userSchema = new Schema({
     userpwd: { type: String },
     ethAddress: { type: String },
     ethParivateKey: { type: String },
+    accountBlance:{type:Number }
 })
 
 const User = mongoose.model('User', userSchema);

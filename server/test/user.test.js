@@ -15,7 +15,8 @@ describe('User',function(){
                 username : 'qgass',
                 userpwd : 'abcd',
                 ethAddress : 'ASDF123KDAKJDHAKASDA',
-                ethParivateKey : 'AAAAAAAAAAAAAAAAA'
+                ethParivateKey : 'AAAAAAAAAAAAAAAAA',
+                accountBlance : 10000
             });
             user.save(function(err,res){
                 expect(res.username).to.be.equal('qgass')

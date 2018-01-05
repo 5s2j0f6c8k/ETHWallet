@@ -38,6 +38,7 @@ const userSchema = new Schema({
     userpwd: { type: String },
     ethAddress: { type: String },
     ethParivateKey: { type: String },
+    accountBlance:{type:Number }
 })
 
 const User = mongoose.model('User', userSchema);
@@ -71,7 +72,8 @@ describe('User',function(){
                 username : 'qgass',
                 userpwd : 'abcd',
                 ethAddress : 'ASDF123KDAKJDHAKASDA',
-                ethParivateKey : 'AAAAAAAAAAAAAAAAA'
+                ethParivateKey : 'AAAAAAAAAAAAAAAAA',
+                accountBlance : 10000
             });
             user.save(function(err,res){
                 expect(res.username).to.be.equal('qgass')
@@ -97,4 +99,4 @@ describe('User',function(){
 })
 ```
 
-> 执行测试案例 mocha --compilers js:babel-core/register
+> 执行测试案例 npm test
