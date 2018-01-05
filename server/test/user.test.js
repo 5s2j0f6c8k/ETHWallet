@@ -1,59 +1,3 @@
-# 此项目是ETH钱包的实现
-
-## 实现功能
-
-> 用户注册
->
-> 申请钱包
->
-> 转账充值
-
-## 实现技术
-
-> 客户端采用react
->
-> 服务器采用node.js
->
-> 数据库使用mongodb
->
-> ETH 客户端使用 Ganache
-
-## 设计数据库
-
-> 数据库使用mongoose 进行对象管理和数据库连接
->
-> 添加用户表描述
->
-```
-'use strict';
-
-import mongoose from 'mongoose'
-
-
-const Schema = mongoose.Schema;
-
-
-const userSchema = new Schema({
-    username: { type: String },
-    userpwd: { type: String },
-    ethAddress: { type: String },
-    ethParivateKey: { type: String },
-})
-
-const User = mongoose.model('User', userSchema);
-
-
-export default User
-```
-
-> 测试框架采用mocha
->
-> 要支持ES6 需要添加ES6 配置 使用  mocha --compilers js:babel-core/register 执行
->
-> 添加用户表测试案例
->
-
-```
 import chalk from 'chalk';
 import assert from 'assert';
 import chai from 'chai';
@@ -95,6 +39,3 @@ describe('User',function(){
         })
     })
 })
-```
-
-> 执行测试案例 mocha --compilers js:babel-core/register
