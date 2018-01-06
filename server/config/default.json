@@ -1,0 +1,12 @@
+{
+    "appConfig": {
+      "dbConfig": {
+        "host": "localhost",
+        "port": 5984,
+        "dbName": "mydb"
+      },
+      "jwtConfig":{
+          "jwtTokenSecret":"!qaz2WSX#edc4RFV'"
+      }
+    }
+  }
