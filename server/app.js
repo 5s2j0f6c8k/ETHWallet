@@ -1,8 +1,8 @@
 /*
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:28 
- * @Last Modified by:   qugang 
- * @Last Modified time: 2018-01-06 18:08:28 
+ * @Last Modified by: qugang
+ * @Last Modified time: 2018-01-07 01:14:42
  */
 
 var express = require('express');
@@ -21,6 +21,17 @@ var config = require('config')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// var allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', 'http://example.com');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+//   next();
+// }
+
+// app.use(allowCrossDomain)
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
