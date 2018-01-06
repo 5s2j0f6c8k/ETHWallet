@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-07 01:18:32 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-07 01:18:32 
+ */
+
 import 'whatwg-fetch'
 import FormData from 'isomorphic-form-data'
 
