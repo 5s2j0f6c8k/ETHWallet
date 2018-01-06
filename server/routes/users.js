@@ -1,8 +1,8 @@
 /*
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:13 
- * @Last Modified by:   qugang 
- * @Last Modified time: 2018-01-06 18:08:13 
+ * @Last Modified by: qugang
+ * @Last Modified time: 2018-01-07 00:04:48
  */
 
 var express = require('express')
@@ -49,7 +49,7 @@ router.post('/login', function (req, res, next) {
     else {
       user.comparePassword(req.body.userpwd, function (err, isValid) {
         if (isValid) {
-          var expires = moment().add(7,'days').valueOf()
+          var expires = moment().add(7, 'days').valueOf()
           var token = jwt.encode(
             {
               iss: user.id,
@@ -78,8 +78,23 @@ router.get('/userInfo', jwtAuth, jwtAuthEvent, function (req, res, next) {
   res.json(req.user)
 });
 
-router.post('/Transfer', jwtAuth, jwtAuthEvent, function (req, res, next) {
-  res.send('respond with a resource');
+router.post('/transfer', jwtAuth, jwtAuthEvent, function (req, res, next) {
+  
+  web3.eth.accounts.signTransaction({
+    to: req.user.ethAddress,
+    gasPrice: "20000000000",
+    gas: "21000",
+    value: req.body.ethValue //1000000000000000000
+  }, req.body.privateKey)
+    .then(function (result) {
+      web3.eth.sendSignedTransaction(result.rawTransaction)
+        .on("receipt", function (r) {
+          res.json({resultCode: "1000", resultMessage: '充值成功' })
+        })
+        .on("error",function(e){
+          res.json({resultCode: "4004", resultMessage: '请检查账户余额' })
+        })
+    })
 });
 
 

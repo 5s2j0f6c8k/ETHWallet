@@ -1,5 +1,13 @@
 # 此项目是ETH钱包的实现
 
+## 了解知识
+
+> 现在的平台的数字货币钱包都是中心化的，一般会为个人开一个账户，然后机构开一个账户
+>
+> 当外部账户充值到平台一般是先充值到个人账户然后再转账到机构账户
+>
+> 两笔转账都是走公链,转账到机构账户以后方便平台自己清算。
+
 ## 实现功能
 
 > 用户注册
@@ -8,95 +16,53 @@
 >
 > 转账充值
 
-## 实现技术
+## 服务端实现技术
 
-> 客户端采用react
 >
 > 服务器采用node.js
 >
 > 数据库使用mongodb
 >
 > ETH 客户端使用 Ganache
-
-## 设计数据库
-
+>
+> 使用jwt 来做客户端token
+>
 > 数据库使用mongoose 进行对象管理和数据库连接
 >
-> 添加用户表描述
->
-```
-'use strict';
-
-import mongoose from 'mongoose'
-
-
-const Schema = mongoose.Schema;
-
-
-const userSchema = new Schema({
-    username: { type: String },
-    userpwd: { type: String },
-    ethAddress: { type: String },
-    ethParivateKey: { type: String },
-    accountBlance:{type:Number }
-})
-
-const User = mongoose.model('User', userSchema);
-
-
-export default User
-```
-
 > 测试框架采用mocha
 >
-> 要支持ES6 需要添加ES6 配置 使用  mocha --compilers js:babel-core/register 执行
->
-> 添加用户表测试案例
->
-
-```
-import chalk from 'chalk';
-import assert from 'assert';
-import chai from 'chai';
-import mongoose from 'mongoose';
-import User from '../model/user';
-
-mongoose.connect('mongodb://localhost:27017/mydb');
-
-const expect = chai.expect;
-
-describe('User',function(){
-    describe('#UserDao',function(){
-        it('测试插入mongodb 插入用户表数据',function(done){
-            var user = new User({
-                username : 'qgass',
-                userpwd : 'abcd',
-                ethAddress : 'ASDF123KDAKJDHAKASDA',
-                ethParivateKey : 'AAAAAAAAAAAAAAAAA',
-                accountBlance : 10000
-            });
-            user.save(function(err,res){
-                expect(res.username).to.be.equal('qgass')
-                done()
-            })
-        });
-
-        
-        it('测试更新mongodb 更新用户表数据',function(done){
-            User.update({username:'qgass'},{userpwd:'123456'},function(err,res){
-                expect(res.ok).to.be.equal(1)
-                done()
-            })
-        });
-        
-        it('测试删除mongodb 删除用户表数据',function(done){
-            User.remove({username:'qgass'},function(err,res){
-                expect(res.ok).to.be.equal(1)
-                done()
-            })
-        })
-    })
-})
-```
-
 > 执行测试案例 npm test
+>
+> 运行项目npm start
+
+## 服务端配置文件
+
+> 配置在config 文件夹下面
+```
+{
+    "appConfig": {
+      "dbConfig": {
+        "host": "localhost",
+        "port": 5984,
+        "dbName": "mydb"
+      },
+      "server":{
+          "host":"localhost",
+          "port":3005
+      },
+      "jwtConfig":{
+          "jwtTokenSecret":"!qaz2WSX#edc4RFV'"
+      },
+      "web3":{
+          "host":"127.0.0.1",
+          "port":"7545"
+      }
+    }
+  }
+```
+
+## 参考
+
+> http://web3js.readthedocs.io/en/1.0/
+>
+> https://github.com/lukaswhite/jwt-node-express
