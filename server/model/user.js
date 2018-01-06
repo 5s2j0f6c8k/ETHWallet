@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-06 18:07:58 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-06 18:07:58 
+ */
+
 'use strict';
 
 import mongoose from 'mongoose'

@@ -11,6 +11,10 @@
       },
       "jwtConfig":{
           "jwtTokenSecret":"!qaz2WSX#edc4RFV'"
+      },
+      "web3":{
+          "host":"127.0.0.1",
+          "port":"7545"
       }
     }
   }

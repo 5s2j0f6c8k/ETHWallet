@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-06 18:08:18 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-06 18:08:18 
+ */
+
 import chalk from 'chalk';
 import assert from 'assert';
 import chai from 'chai';

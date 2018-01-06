@@ -1,3 +1,11 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-06 18:07:35 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-06 18:07:35 
+ */
+
+
 var url = require('url')
 var UserModel = require('../model/user')
 var jwt = require('jwt-simple')

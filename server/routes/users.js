@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-06 18:08:13 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-06 18:08:13 
+ */
+
 var express = require('express')
 var User = require('../model/user')
 var web3 = require('../comm/web3Wrapper')

@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-06 18:08:28 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-06 18:08:28 
+ */
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
