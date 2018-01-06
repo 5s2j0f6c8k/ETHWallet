@@ -59,16 +59,6 @@ describe('User', function (done) {
             })
         })
 
-        it('测试注销用户信息',function(done){
-            chai.request(server)
-            .get("/users/logout")
-            .set("x-access-token",userInfo.token)
-            .end(function(err,res){
-                chai.expect(res.body.username).to.be.equal("qugang")
-                done()
-            })
-        })
-
         it('测试完毕清除用户数据',function(done){
             User.remove({ username: 'qugang' }).then(function ( res) {
                 chai.expect(res.ok).to.be.equal(1)

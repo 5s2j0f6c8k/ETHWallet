@@ -5,6 +5,10 @@
         "port": 5984,
         "dbName": "mydb"
       },
+      "server":{
+          "host":"localhost",
+          "port":3005
+      },
       "jwtConfig":{
           "jwtTokenSecret":"!qaz2WSX#edc4RFV'"
       }
