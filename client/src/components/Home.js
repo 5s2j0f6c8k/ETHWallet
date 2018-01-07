@@ -1,3 +1,10 @@
+/*
+ * @Author: qugang 
+ * @Date: 2018-01-08 00:11:56 
+ * @Last Modified by:   qugang 
+ * @Last Modified time: 2018-01-08 00:11:56 
+ */
+
 import React, { Component } from 'react'
 import fetch from './common/fetch'
 import * as Ons from "react-onsenui"
