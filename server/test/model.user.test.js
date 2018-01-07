@@ -1,8 +1,8 @@
 /*
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:18 
- * @Last Modified by:   qugang 
- * @Last Modified time: 2018-01-06 18:08:18 
+ * @Last Modified by: qugang
+ * @Last Modified time: 2018-01-07 14:08:08
  */
 
 import chalk from 'chalk';
@@ -10,8 +10,10 @@ import assert from 'assert';
 import chai from 'chai';
 import mongoose from 'mongoose';
 import User from '../model/user';
+import dbConnect from '../comm/dbConnect'
 
-mongoose.connect('mongodb://localhost:27017/mydb');
+dbConnect()
+
 
 const expect = chai.expect;
 

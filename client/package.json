@@ -1,11 +1,21 @@
 {
-  "name": "client",
+  "name": "zq-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "downloadbutton": "^1.0.0",
+    "jquery": "^3.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-dropzone": "^4.2.3",
+    "react-fileupload": "^2.4.0",
+    "react-images-uploader": "^1.1.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "4.1.2",
+    "redux": "^3.7.2",
+    "redux-act": "^1.4.0",
+    "redux-form": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,8 +27,12 @@
     "import": "0.0.6",
     "isomorphic-form-data": "^1.0.0",
     "onsenui": "^2.5.3",
+    "react-core-loading-spinner": "^1.0.1",
+    "react-dropzone": "^4.1.2",
     "react-onsenui": "^1.5.0",
     "react-waypoint": "^7.1.0",
+    "redux-devtools": "^3.4.0",
+    "redux-saga": "^0.15.6",
     "uuid": "^3.1.0",
     "whatwg-fetch": "^2.0.3"
   }

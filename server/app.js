@@ -2,7 +2,7 @@
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:28 
  * @Last Modified by: qugang
- * @Last Modified time: 2018-01-07 01:14:42
+ * @Last Modified time: 2018-01-07 14:13:09
  */
 
 var express = require('express');
@@ -14,29 +14,25 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var cors=require('cors');
 
 var app = express();
 
 var config = require('config')
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+var dbConnect = require('./comm/dbConnect')
 
-// var allowCrossDomain = function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', 'http://example.com');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+dbConnect()
 
-//   next();
-// }
 
-// app.use(allowCrossDomain)
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({origin:true,credentials: true}));
+
 
 app.use('/', index);
 app.use('/users', users);

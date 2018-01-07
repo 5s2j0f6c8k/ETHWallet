@@ -2,7 +2,7 @@
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:13 
  * @Last Modified by: qugang
- * @Last Modified time: 2018-01-07 00:04:48
+ * @Last Modified time: 2018-01-07 10:28:36
  */
 
 var express = require('express')
@@ -39,6 +39,7 @@ router.post('/register', function (req, res, next) {
 });
 
 router.post('/login', function (req, res, next) {
+  console.log(req.body)
   User.findOne({ username: req.body.username }, function (err, user) {
     if (err) {
       res.json({ resultCode: "4002", resultMessage: "登陆失败" })
