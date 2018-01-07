@@ -2,7 +2,7 @@
  * @Author: qugang 
  * @Date: 2018-01-07 14:26:03 
  * @Last Modified by: qugang
- * @Last Modified time: 2018-01-07 20:50:58
+ * @Last Modified time: 2018-01-07 23:33:04
  */
 
 import React, { Component } from 'react'
@@ -21,12 +21,14 @@ class Register extends Component{
     }
 
     handleClick(e) {
+        const props = this.props
         fetch(path.register, {
             username: this.state.username,
             userpwd: this.state.password
         }).then(function (res) {
             if (res.resultCode === "1000") {
                 ons.notification.alert('注册成功')
+                props.navigator.popPage()
             }
             else {
                 ons.notification.alert('注册失败')
@@ -43,7 +45,6 @@ class Register extends Component{
 
     render(){
            return (
-            <div>
                 <Ons.Page renderToolbar={() => (
                 <Ons.Toolbar>
                     <div className='left'><Ons.BackButton /></div>
@@ -75,7 +76,6 @@ class Register extends Component{
                         </p>
                     </section>
                 </Ons.Page>
-            </div>
         )
     }
 

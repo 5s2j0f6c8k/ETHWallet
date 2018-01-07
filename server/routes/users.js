@@ -2,7 +2,7 @@
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:13 
  * @Last Modified by: qugang
- * @Last Modified time: 2018-01-07 10:28:36
+ * @Last Modified time: 2018-01-07 23:49:23
  */
 
 var express = require('express')
@@ -29,7 +29,6 @@ router.post('/register', function (req, res, next) {
 
   user.save(function (error, result) {
     if (error) {
-      console.log(error)
       res.json({ resultCode: "4001", resultMessage: '注册失败' })
     }
     else {
