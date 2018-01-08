@@ -1,8 +1,8 @@
 /*
  * @Author: qugang 
  * @Date: 2018-01-08 00:11:56 
- * @Last Modified by:   qugang 
- * @Last Modified time: 2018-01-08 00:11:56 
+ * @Last Modified by: qugang
+ * @Last Modified time: 2018-01-08 12:16:25
  */
 
 import React, { Component } from 'react'
@@ -51,11 +51,10 @@ class Home extends Component {
     }
 
     handleClick(e){
-        
         fetch(path.transfer, {
             'ethAddress':this.state.address,
-            'value':this.value,
-            'privateKey': this.privateKey
+            'ethValue':this.state.value,
+            'privateKey': this.state.privateKey
         },window.localStorage.token).then(function (res) {
             if(res.resultCode === "1000"){
                 ons.notification.alert('转账成功')
@@ -65,8 +64,6 @@ class Home extends Component {
             }
         })
     }
-
-
 
     render() {
         return (

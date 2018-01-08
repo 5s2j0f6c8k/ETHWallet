@@ -2,7 +2,7 @@
  * @Author: qugang 
  * @Date: 2018-01-06 18:08:13 
  * @Last Modified by: qugang
- * @Last Modified time: 2018-01-07 23:49:23
+ * @Last Modified time: 2018-01-08 12:07:02
  */
 
 var express = require('express')
@@ -79,21 +79,22 @@ router.get('/userInfo', jwtAuth, jwtAuthEvent, function (req, res, next) {
 });
 
 router.post('/transfer', jwtAuth, jwtAuthEvent, function (req, res, next) {
+  console.log(req.user.ethAddress)
+  console.log(req.body)
   web3.eth.accounts.signTransaction({
     to: req.user.ethAddress,
     gasPrice: "20000000000",
     gas: "21000",
     value: req.body.ethValue //1000000000000000000
-  }, req.body.privateKey)
-    .then(function (result) {
-      web3.eth.sendSignedTransaction(result.rawTransaction)
-        .on("receipt", function (r) {
-          res.json({resultCode: "1000", resultMessage: '充值成功' })
-        })
-        .on("error",function(e){
-          res.json({resultCode: "4004", resultMessage: '请检查账户余额' })
-        })
-    })
+  }, req.body.privateKey,function (err,result) {
+    web3.eth.sendSignedTransaction(result.rawTransaction)
+      .on("receipt", function (r) {
+        res.json({resultCode: "1000", resultMessage: '充值成功' })
+      })
+      .on("error",function(e){
+        res.json({resultCode: "4004", resultMessage: '请检查账户余额' })
+      })
+  })
 });
 
 
