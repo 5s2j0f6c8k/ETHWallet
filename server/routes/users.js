@@ -79,7 +79,6 @@ router.get('/userInfo', jwtAuth, jwtAuthEvent, function (req, res, next) {
 });
 
 router.post('/transfer', jwtAuth, jwtAuthEvent, function (req, res, next) {
-  
   web3.eth.accounts.signTransaction({
     to: req.user.ethAddress,
     gasPrice: "20000000000",
